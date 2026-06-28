@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Happy Birthday Sylvia ❤️</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+        <style>
+            *{
+                margin:0;
+                padding:0;
+                box-sizing:border-box;
+            }
+
+            body{
+                font-family:'Poppins',sans-serif;
+                background:#000;
+                color:white;
+                min-height:100vh;
+                overflow:hidden;
+                transition:1.5s;
+            }
+
+            body.lights-on{
+                background:
+                linear-gradient(
+                    135deg,
+                    #2d0b0b,
+                    #5b1d1d,
+                    #7b2d26
+                );
+            }
+
+            .scene{
+                display:none;
+                width:100%;
+                min-height:100vh;
+                flex-direction:column;
+                justify-content:center;
+                align-items:center;
+                text-align:center;
+                padding:20px;
+            }
+
+            .scene.active{
+                display:flex;
+            }
+
+            h1{
+                font-family:'Great Vibes',cursive;
+                font-size:4rem;
+                margin-bottom:20px;
+            }
+
+            h2{
+                font-family:'Great Vibes',cursive;
+                font-size:3rem;
+                margin-bottom:30px;
+            }
+
+            .subtitle{
+                font-size:1.3rem;
+                margin-bottom:20px;
+            }
+
+            .small-text{
+                opacity:.7;
+                margin-bottom:40px;
+            }
+
+            .glow-btn{
+                padding:15px 35px;
+                border:none;
+                border-radius:50px;
+                color:white;
+                background:#222;
+                cursor:pointer;
+                font-size:1rem;
+                transition:.4s;
+                box-shadow:
+                0 0 10px red,
+                0 0 20px red,
+                0 0 40px red;
+            }
+
+            .glow-btn:hover{
+                background:red;
+                transform:scale(1.05);
+                box-shadow:
+                0 0 20px red,
+                0 0 40px red,
+                0 0 80px red;
+            }
+
+            .popup{
+                background:rgba(255,255,255,.05);
+                padding:40px;
+                border-radius:20px;
+                backdrop-filter:blur(10px);
+            }
+
+            #hearts-container{
+                position:fixed;
+                width:100%;
+                height:100%;
+                pointer-events:none;
+            }
+
+            .heart{
+                position:absolute;
+                color:#ff5e78;
+                animation:floatHeart linear forwards;
+            }
+
+            @keyframes floatHeart{
+
+                from{
+                    transform:translateY(100vh);
+                    opacity:1;
+                }
+
+                to{
+                    transform:translateY(-100px);
+                    opacity:0;
+                }
+
+            }
+
+            /* BALLOONS */
+
+            .balloon{
+                position:absolute;
+                width:60px;
+                height:80px;
+                border-radius:50%;
+                bottom:-120px;
+                animation:floatUp linear forwards;
+            }
+
+            .balloon::before{
+                content:"";
+                position:absolute;
+                width:2px;
+                height:70px;
+                background:white;
+                left:50%;
+                top:80px;
+                transform:translateX(-50%);
+            }
+
+            .red{
+                background:#ff3b3b;
+            }
+
+            .blue{
+                background:#4da6ff;
+            }
+
+            .yellow{
+                background:#ffd633;
+            }
+
+            .pink{
+                background:#ff66b3;
+            }
+
+            .white{
+                background:#ffffff;
+            }
+
+            @keyframes floatUp{
+
+            0%{
+                transform:
+                translateY(0);
+                opacity:1;
+            }
+
+            100%{
+                transform:
+                translateY(-130vh);
+                opacity:1;
+            }
+
+            }
+
+            #scene8{
+                position:relative;
+                overflow:hidden;
+                background:
+                radial-gradient(
+                    circle,
+                    rgba(255,255,200,.15),
+                    transparent 70%
+                ),
+                #000;
+            }
+
+            #hiddenLetter{
+                opacity:0;
+                transition:2s;
+                z-index:1;
+                max-width:800px;
+                padding:40px;
+            }
+
+            #curtainRod{
+                position:absolute;
+                top:0;
+                left:0;
+                width:100%;
+                height:20px;
+                background:
+                linear-gradient(
+                    to bottom,
+                    gold,
+                    #b8860b
+                );
+
+                z-index:120;
+            }
+
+            #curtainLeft,
+            #curtainRight{
+                position:absolute;
+                top:0;
+                width:50%;
+                height:100%;
+                z-index:100;
+                background:
+                repeating-linear-gradient(
+                    90deg,
+                    #3d0000 0px,
+                    #6a0000 10px,
+                    #a00000 20px,
+                    #6a0000 30px,
+                    #3d0000 40px
+                );
+                box-shadow:
+                inset -15px 0 25px rgba(0,0,0,.5),
+                inset 15px 0 25px rgba(255,255,255,.08);
+                border-radius:
+                0 0 25px 25px;
+                transition:2.5s ease-in-out;
+                overflow:hidden;
+                #curtainLeft{
+                    transform-origin:
+                    left center;
+                }
+                #curtainRight{
+                    transform-origin:
+                    right center;
+                }
+
+            }
+
+            .tassel{
+                position:absolute;
+                width:20px;
+                height:100px;
+                background:gold;
+                top:100px;
+                z-index:15;
+                }
+
+                .tassel-left{
+                left:48%;
+                }
+
+                .tassel-right{
+                right:48%;
+            }
+
+            #curtainLeft{
+                transform-origin:left center;
+            }
+
+            #curtainRight{
+                transform-origin:right center;
+            }
+
+            .open-left{
+                animation: openLeftCurtain 3s forwards ease-in-out;
+            }
+
+            .open-right{
+                animation: openRightCurtain 3s forwards ease-in-out;
+            }
+
+            @keyframes openLeftCurtain{
+
+                0%{
+                    transform:
+                    translateX(0)
+                    scaleX(1);
+                }
+
+                20%{
+                    transform:
+                    translateX(-10%)
+                    rotate(-2deg)
+                    scaleX(1.05);
+                }
+
+                50%{
+                    transform:
+                    translateX(-50%)
+                    scaleX(0.95);
+                }
+
+                80%{
+                    transform:
+                    translateX(-90%)
+                    rotate(-1deg)
+                    scaleX(1.03);
+                }
+
+                100%{
+                    transform:
+                    translateX(-100%)
+                    scaleX(1);
+                }
+            }
+
+            @keyframes openRightCurtain{
+
+                0%{
+                    transform:
+                    translateX(0)
+                    scaleX(1);
+                }
+
+                20%{
+                    transform:
+                    translateX(10%)
+                    rotate(2deg)
+                    scaleX(1.05);
+                }
+
+                50%{
+                    transform:
+                    translateX(50%)
+                    scaleX(0.95);
+                }
+
+                80%{
+                    transform:
+                    translateX(90%)
+                    rotate(1deg)
+                    scaleX(1.03);
+                }
+
+                100%{
+                    transform:
+                    translateX(100%)
+                    scaleX(1);
+                }
+            }
+
+            #curtainLeft::after,
+            #curtainRight::after{
+                content:"";
+                position:absolute;
+                left:0;
+                bottom:-20px;
+                width:100%;
+                height:40px;
+                background:inherit;
+                border-radius:50%;
+            }
+
+            .love-letter{
+                max-width:700px;
+                line-height:2;
+                margin:30px auto;
+                font-size:1.2rem;
+            }
+
+            .gallery{
+                display:grid;
+                grid-template-columns:
+                repeat(auto-fit,minmax(250px,1fr));
+                gap:20px;
+                width:100%;
+                max-width:1200px;
+            }
+
+            .memory{
+                position:relative;
+                overflow:hidden;
+                border-radius:15px;
+            }
+
+            .memory img{
+                width:100%;
+                height:300px;
+                object-fit:cover;
+            }
+
+            .overlay{
+                position:absolute;
+                inset:0;
+                background:
+                rgba(0,0,0,.7);
+                display:flex;
+                justify-content:center;
+                align-items:center;
+                opacity:0;
+                transition:.4s;
+                text-align:center;
+                padding:20px;
+            }
+
+            .memory:hover .overlay{
+                opacity:1;
+            }
+
+            .big-heart{
+                font-size:120px;
+                animation:pulse 1.5s infinite;
+            }
+
+            @keyframes pulse{
+
+                0%{
+                    transform:scale(1);
+                }
+
+                50%{
+                    transform:scale(1.2);
+                }
+
+                100%{
+                    transform:scale(1);
+                }
+            }
+        </style>
+
+    </head>
+
+<body>
+
+    <div id="hearts-container"></div>
+
+    <!-- Scene 1 -->
+
+    <section class="scene active" id="scene1">
+
+        <h1>Happy Birthday, Sylvia ❤️</h1>
+
+        <p class="subtitle">
+            A Cinematic Journey Created Just For You
+        </p>
+
+        <p class="small-text">
+            A story waiting to unfold...
+        </p>
+
+        <button class="glow-btn" onclick="nextScene(1,2)">
+            Open Your Gift
+        </button>
+
+    </section>
+
+    <!-- Scene 2 -->
+
+    <section class="scene" id="scene2">
+
+        <div class="popup">
+
+            <h2>It's Your Special Day Mamaa ❤️</h2>
+
+            <button class="glow-btn" onclick="nextScene(2,3)">
+                NEXT →
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- Scene 3 -->
+
+    <section class="scene" id="scene3">
+
+        <h2>Have A Look At It Miss. Stevens ❤️</h2>
+
+        <button class="glow-btn" onclick="nextScene(3,4)">
+            NEXT →
+        </button>
+
+    </section>
+
+    <!-- Scene 4 -->
+
+    <section class="scene" id="scene4">
+
+        <h2>The Stage Is Set...</h2>
+
+        <button class="glow-btn" onclick="turnOnLights()">
+            Turn On Lights
+        </button>
+
+    </section>
+
+    <!-- Scene 5 -->
+
+    <section class="scene" id="scene5">
+
+        <h2>Music Makes It Even Better...</h2>
+
+        <button class="glow-btn" onclick="playMusic()">
+            Play Music
+        </button>
+
+    </section>
+
+    <!-- Scene 6 -->
+
+    <section class="scene" id="scene6">
+
+        <h2>Let The Colors Fly!</h2>
+
+        <button
+            class="glow-btn"
+            onclick="flyBalloons()">
+            Fly Balloons
+        </button>
+
+        <div id="balloonContainer"></div>
+
+    </section>
+
+
+    <section class="scene" id="scene7">
+
+        <h2>Almost There...</h2>
+
+        <button class="glow-btn" onclick="showCurtains()">
+            Show The Message
+        </button>
+
+    </section>
+
+    <section class="scene" id="scene8">
+
+        <div id="curtainRod"></div>
+
+        <div id="curtainLeft"></div>
+
+        <div id="curtainRight"></div>
+
+        <div id="hiddenLetter">
+
+            <h2>My Dearest Sylvia:</h2>
+
+            <p class="love-letter">
+
+                Today isn't just a date on the calendar,
+                it's a celebration of the light you bring
+                into my life.
+
+                Every moment with you feels like a frame
+                from a beautiful movie.
+
+                And I am so lucky to be your co-star.
+
+                May this year be filled with as much magic
+                as you give to everyone around you.
+
+                Happy Birthday Mamaa ❤️
+
+            </p>
+
+            <button
+                class="glow-btn"
+                onclick="nextScene(8,9)"
+            >
+                Our Memories
+            </button>
+
+        </div>
+
+    </section>
+
+    <section class="scene" id="scene9">
+
+        <h2>Moments In Time ❤️</h2>
+
+        <div class="gallery">
+
+            <div class="memory">
+                <img src="assets/images/image2.jpeg">
+                <div class="overlay">
+                    ❤️ You Make My World Beautiful
+                </div>
+            </div>
+
+            <div class="memory">
+                <img src="assets/images/image6.jpeg">
+                <div class="overlay">
+                    ❤️ Every Moment With You Is Magic
+                </div>
+            </div>
+
+            <div class="memory">
+                <img src="assets/images/image4.jpeg">
+                <div class="overlay">
+                    ❤️ My Favorite Place Is Beside You
+                </div>
+            </div>
+
+            <div class="memory">
+                <img src="assets/images/image1.jpeg">
+                <div class="overlay">
+                    ❤️ You Turn Ordinary Days Into Memories
+                </div>
+            </div>
+
+            <div class="memory">
+                <img src="assets/images/image3.jpeg">
+                <div class="overlay">
+                    ❤️ Your Smile Is My Favorite View
+                </div>
+            </div>
+
+            <div class="memory">
+                <img src="assets/images/image5.jpeg">
+                <div class="overlay">
+                    ❤️ Forever Starts With Moments Like These
+                </div>
+            </div>
+
+            <div class="memory">
+                <img src="assets/images/image8.jpeg">
+                <div class="overlay">
+                    ❤️ In Every Picture, I Find Another Reason To Love You
+                </div>
+            </div>
+
+            <div class="memory">
+                <img src="assets/images/image7.jpeg">
+                <div class="overlay">
+                    ❤️ No Matter Where Life Takes Us, I Want More Moments Like This With You
+                </div>
+            </div>
+
+        </div>
+
+        <button
+            class="glow-btn"
+            onclick="nextScene(9,10)"
+        >
+            One Last Thing...
+        </button>
+
+    </section>
+
+    <section class="scene" id="scene10">
+
+        <div id="finalMessage">
+
+            <h1>
+                Happy Birthday Sylvia ❤️
+            </h1>
+
+            <p>
+
+                Thank You For Being Part Of My Story.
+
+                You Are My Favorite Chapter.
+
+                Forever And Always.
+
+            </p>
+
+            <div class="big-heart">
+                ❤️
+            </div>
+
+            <button
+                class="glow-btn"
+                onclick="nextScene(10,11)"
+            >
+                Final Credits
+            </button>
+
+        </div>
+
+    </section>
+
+    <section class="scene" id="scene11">
+
+        <h1>Created With Love ❤️</h1>
+
+        <h2>
+            Austine Stevens
+        </h2>
+
+        <p>
+            Happy Birthday Mamaa ❤️
+        </p>
+
+    </section>
+
+    <audio id="birthdayMusic">
+        <source src="assets/music/atlasaudio-love-522433 (1).mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        function nextScene(current,next){
+            document
+            .getElementById(`scene${current}`)
+            .classList.remove("active");
+
+            document
+            .getElementById(`scene${next}`)
+            .classList.add("active");
+
+        }
+
+        function turnOnLights(){
+
+            document.body.classList.add("lights-on");
+
+            startHearts();
+
+            nextScene(4,5);
+
+        }
+
+        function playMusic(){
+
+            document
+            .getElementById("birthdayMusic")
+            .play();
+
+            nextScene(5,6);
+
+        }
+
+        function startHearts(){
+
+            setInterval(()=>{
+
+                let heart =
+                document.createElement("div");
+
+                heart.className="heart";
+
+                heart.innerHTML="❤️";
+
+                heart.style.left =
+                Math.random()*100+"vw";
+
+                heart.style.fontSize =
+                (20+Math.random()*30)+"px";
+
+                heart.style.animationDuration =
+                (4+Math.random()*3)+"s";
+
+                document
+                .getElementById("hearts-container")
+                .appendChild(heart);
+
+                setTimeout(()=>{
+                    heart.remove();
+                },7000);
+
+            },300);
+
+        }
+
+        function flyBalloons(){
+
+            const container =
+            document.getElementById(
+                "balloonContainer"
+            );
+
+            const colors = [
+                "red",
+                "blue",
+                "yellow",
+                "pink",
+                "white"
+            ];
+
+            for(let i = 0; i < 60; i++){
+
+                const balloon =
+                document.createElement("div");
+
+                balloon.classList.add(
+                    "balloon"
+                );
+
+                balloon.classList.add(
+                    colors[
+                        Math.floor(
+                            Math.random() *
+                            colors.length
+                        )
+                    ]
+                );
+
+                balloon.style.left =
+                Math.random()*100 + "vw";
+
+                balloon.style.animationDuration =
+                (4 + Math.random()*4) + "s";
+
+                balloon.style.animationDelay =
+                (Math.random()*1.5) + "s";
+
+                container.appendChild(
+                    balloon
+                );
+
+                setTimeout(()=>{
+                    balloon.remove();
+                },10000);
+            }
+
+            setTimeout(()=>{
+
+                nextScene(6,7);
+
+            },6000);
+
+        }
+
+        const curtainSound =
+        new Audio(
+        "assets/music/curtain.mp3"
+        );
+
+        curtainSound.play();
+
+        createGoldParticles();
+
+        function showCurtains(){
+
+            nextScene(7,8);
+
+            setTimeout(()=>{
+
+                document
+                .getElementById("curtainLeft")
+                .classList.add("open-left");
+
+                document
+                .getElementById("curtainRight")
+                .classList.add("open-right");
+
+            },1000);
+
+            setTimeout(()=>{
+
+                document
+                .getElementById("hiddenLetter")
+                .style.opacity="1";
+
+            },3500);
+        }
+
+        document
+        .getElementById("scene10")
+        .addEventListener(
+        "click",
+        function(){
+
+            confetti({
+
+                particleCount:250,
+
+                spread:180,
+
+                origin:{
+                    y:0.6
+                }
+            });
+
+        });
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+</body>
+</html>
