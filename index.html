@@ -9,6 +9,295 @@
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+
+    </head>
+
+<body>
+
+    <div id="hearts-container"></div>
+
+    <!-- Scene 1 -->
+
+    <section class="scene active" id="scene1">
+
+        <h1>Happy Birthday, Sylvia ❤️</h1>
+
+        <p class="subtitle">
+            A Cinematic Journey Created Just For You
+        </p>
+
+        <p class="small-text">
+            A story waiting to unfold...
+        </p>
+
+        <button class="glow-btn" onclick="nextScene(1,2)">
+            Open Your Gift
+        </button>
+
+    </section>
+
+    <!-- Scene 2 -->
+
+    <section class="scene" id="scene2">
+
+        <div class="popup">
+
+            <h2>It's Your Special Day Mamaa ❤️</h2>
+
+            <button class="glow-btn" onclick="nextScene(2,3)">
+                NEXT →
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- Scene 3 -->
+
+    <section class="scene" id="scene3">
+
+        <h2>Have A Look At It Miss. Stevens ❤️</h2>
+
+        <button class="glow-btn" onclick="nextScene(3,4)">
+            NEXT →
+        </button>
+
+    </section>
+
+    <!-- Scene 4 -->
+
+    <section class="scene" id="scene4">
+
+        <h2>The Stage Is Set...</h2>
+
+        <button class="glow-btn" onclick="turnOnLights()">
+            Turn On Lights
+        </button>
+
+    </section>
+
+    <!-- Scene 5 -->
+
+    <section class="scene" id="scene5">
+
+        <h2>Music Makes It Even Better...</h2>
+
+        <button class="glow-btn" onclick="playMusic()">
+            Play Music
+        </button>
+
+    </section>
+
+    <!-- Scene 6 -->
+
+    <section class="scene" id="scene6">
+
+        <h2>Let The Colors Fly!</h2>
+
+        <button
+            class="glow-btn"
+            onclick="flyBalloons()">
+            Fly Balloons
+        </button>
+
+        <div id="balloonContainer"></div>
+
+    </section>
+
+
+    <section class="scene" id="scene7">
+
+        <h2>Almost There...</h2>
+
+        <button class="glow-btn" onclick="showCurtains()">
+            Show The Message
+        </button>
+
+    </section>
+
+    <section class="scene" id="scene8">
+
+        <div id="curtainRod"></div>
+
+        <div id="curtainLeft"></div>
+
+        <div id="curtainRight"></div>
+
+        <div id="hiddenLetter">
+
+            <h2>My Dearest Sylvia:</h2>
+
+            <p class="love-letter">
+
+                Today isn't just a date on the calendar,
+                it's a celebration of the light you bring
+                into my life.
+
+                Every moment with you feels like a frame
+                from a beautiful movie.
+
+                And I am so lucky to be your co-star.
+
+                May this year be filled with as much magic
+                as you give to everyone around you.
+
+                Happy Birthday Mamaa ❤️
+
+            </p>
+
+            <button
+                class="glow-btn"
+                onclick="nextScene(8,9)"
+            >
+                Our Memories
+            </button>
+
+        </div>
+
+    </section>
+
+    <section class="scene" id="scene9">
+
+        <h2>Moments In Time ❤️</h2>
+
+        <div class="gallery">
+
+            <div class="memory">
+                <img src="assets/images/image2.jpeg">
+                <div class="overlay">
+                    ❤️ You Make My World Beautiful
+                </div>
+            </div>
+
+            <div class="memory">
+                <img src="assets/images/image6.jpeg">
+                <div class="overlay">
+                    ❤️ Every Moment With You Is Magic
+                </div>
+            </div>
+
+            <div class="memory">
+                <img src="assets/images/image4.jpeg">
+                <div class="overlay">
+                    ❤️ My Favorite Place Is Beside You
+                </div>
+            </div>
+
+            <div class="memory">
+                <img src="assets/images/image1.jpeg">
+                <div class="overlay">
+                    ❤️ You Turn Ordinary Days Into Memories
+                </div>
+            </div>
+
+            <div class="memory">
+                <img src="assets/images/image3.jpeg">
+                <div class="overlay">
+                    ❤️ Your Smile Is My Favorite View
+                </div>
+            </div>
+
+            <div class="memory">
+                <img src="assets/images/image5.jpeg">
+                <div class="overlay">
+                    ❤️ Forever Starts With Moments Like These
+                </div>
+            </div>
+
+            <div class="memory">
+                <img src="assets/images/image8.jpeg">
+                <div class="overlay">
+                    ❤️ In Every Picture, I Find Another Reason To Love You
+                </div>
+            </div>
+
+            <div class="memory">
+                <img src="assets/images/image7.jpeg">
+                <div class="overlay">
+                    ❤️ No Matter Where Life Takes Us, I Want More Moments Like This With You
+                </div>
+            </div>
+
+        </div>
+
+        <button
+            class="glow-btn"
+            onclick="nextScene(9,10)"
+        >
+            One Last Thing...
+        </button>
+
+    </section>
+
+    <section class="scene" id="scene10">
+
+        <div id="finalMessage">
+
+            <h1>
+                Happy Birthday Sylvia ❤️
+            </h1>
+
+            <p>
+
+                Thank You For Being Part Of My Story.
+
+                You Are My Favorite Chapter.
+
+                Forever And Always.
+
+            </p>
+
+            <div class="big-heart">
+                ❤️
+            </div>
+
+            <button
+                class="glow-btn"
+                onclick="nextScene(10,11)"
+            >
+                Final Credits
+            </button>
+
+        </div>
+
+    </section>
+
+    <section class="scene" id="scene11">
+
+        <h1>Created With Love ❤️</h1>
+
+        <h2>
+            Austine Stevens
+        </h2>
+
+        <p>
+            Happy Birthday Mamaa ❤️
+        </p>
+
+    </section>
+
+    <audio id="birthdayMusic">
+        <source src="assets/music/atlasaudio-love-522433 (1).mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Happy Birthday Sylvia ❤️</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
         <style>
             *{
